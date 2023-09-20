@@ -3,7 +3,7 @@
  * executing - This function to execute commands
  * @str: the command to execute
  * @array: array of commands passed by user
- * @envp environment variables
+ * @envp: environment variables
  * Return: always o
  */
 int executing(char *str, char **array, char **envp)
