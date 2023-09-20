@@ -34,6 +34,7 @@ int main(int ac, char **argv, char **envp)
 	if (child_processID == 0)
 		executing(arg[0], arg, envp);
 
+
 	else if (child_processID < 0)
 		termination_child();
 	else
@@ -42,4 +43,3 @@ int main(int ac, char **argv, char **envp)
 	free(buffer);
 	return (0);
 }
-
