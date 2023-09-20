@@ -8,7 +8,7 @@
  */
 int main(int ac, char **argv, char **envp)
 {
-	char *buffer = NULL;
+	char *buffer = NULL, *fullpath;
 	char *arg[10];
 	size_t buff_size = 0;
 	ssize_t nread;
@@ -18,9 +18,7 @@ int main(int ac, char **argv, char **envp)
 	while (1)
 	{
 		if (isatty(0))
-		{
 			write(1, "Prompt $ ", 9);
-		}
 	nread = getline(&buffer, &buff_size, stdin);
 	if (nread == -1)
 	{
@@ -29,7 +27,11 @@ int main(int ac, char **argv, char **envp)
 	}
 	remove_newline(buffer);
 	tokenization_args(buffer, arg);
-	executing(arg, envp);
+	if (access(arg[0], X_OK) == 0)
+		fullpath = arg[0];
+	else
+		fullpath = fetch_location(arg[0]);
+	executing(fullpath, arg, envp);
 	}
 	free(buffer);
 	return (0);
