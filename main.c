@@ -33,10 +33,11 @@ int main(int ac, char **argv, char **envp)
 	child_processID = fork();
 	if (child_processID == 0)
 		executing(arg[0], arg, envp);
-
-
 	else if (child_processID < 0)
+	{
+		free(buffer);
 		termination_child();
+	}
 	else
 		wait(&status);
 	}
