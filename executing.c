@@ -3,10 +3,11 @@
  * executing - This function to execute command
  * @arg: Input string
  * @envp: environment variables
+ * @fullpath: The full path of the command
  *
  * Return: always 0
  */
-int executing(char **arg, char **envp)
+int executing(char *fullpath, char **arg, char **envp)
 {
 	pid_t child_processID;
 	int status;
@@ -15,7 +16,7 @@ int executing(char **arg, char **envp)
 
 	if (child_processID == 0)
 	{
-		if (execve(arg[0], arg, envp) == -1)
+		if (execve(fullpath, arg, envp) == -1)
 		{
 			perror("Could not execute");
 			exit(0);
