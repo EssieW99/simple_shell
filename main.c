@@ -31,6 +31,13 @@ int main(int ac, char **argv, char **envp)
 		fullpath = arg[0];
 	else
 		fullpath = fetch_location(arg[0]);
+	if (fullpath == NULL)
+	{
+		if (other_commands(arg) != 0)
+			continue;
+		else
+			continue;
+	}
 	executing(fullpath, arg, envp);
 	}
 	free(buffer);
