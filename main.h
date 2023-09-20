@@ -11,10 +11,8 @@ int print_any_string(char *str);
 int _putcharacter(char character);
 void termination(void);
 char *remove_newline(char *buffer);
-int executing(char *str, char **array, char **envp);
 void termination_child(void);
 void tokenization_args(char *str, char **argument);
-
+int executing(char **arg, char **envp);
 
 #endif
-
