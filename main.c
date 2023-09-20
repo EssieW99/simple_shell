@@ -8,7 +8,6 @@
  */
 int main(int ac, char **argv, char **envp)
 {
-
 	char *prompt = "Prompt $ ";
 	char *buffer = NULL;
 	char *arg[10];
@@ -19,7 +18,6 @@ int main(int ac, char **argv, char **envp)
 
 	(void)ac;
 	(void)argv;
-
 	while (1)
 	{
 		if (isatty(0))
@@ -36,6 +34,7 @@ int main(int ac, char **argv, char **envp)
 	if (child_processID == 0)
 		executing(arg[0], arg, envp);
 
+
 	else if (child_processID < 0)
 		termination_child();
 	else
@@ -44,6 +43,3 @@ int main(int ac, char **argv, char **envp)
 	free(buffer);
 	return (0);
 }
-
-
-       
