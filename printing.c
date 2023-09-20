@@ -36,7 +36,7 @@ int _putcharacter(char character)
  */
 void termination(void)
 {
-	exit(1);
+	exit(0);
 }
 /**
  * remove_newline - this is a custom function that takes the

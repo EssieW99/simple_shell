@@ -1,17 +1,34 @@
 #include "main.h"
 /**
- * executing - This function to execute commands
- * @str: the command to execute
- * @array: array of commands passed by user
- * @envp environment variables
- * Return: always o
+ * executing - This function to execute command
+ * @arg: Input string
+ * @envp: environment variables
+ * @fullpath: The full path of the command
+ *
+ * Return: always 0
  */
-int executing(char *str, char **array, char **envp)
+int executing(char *fullpath, char **arg, char **envp)
 {
-	if (execve(str, array, envp) == -1)
+	pid_t child_processID;
+	int status;
+
+	child_processID = fork();
+
+	if (child_processID == 0)
 	{
-		perror("Could not execute");
-		exit(0);
+		if (execve(fullpath, arg, envp) == -1)
+		{
+			perror("Could not execute");
+			exit(0);
+		}
+	}
+	else if (child_processID < 0)
+	{
+		termination_child();
+	}
+	else
+	{
+		wait(&status);
 	}
 	return (0);
 }
