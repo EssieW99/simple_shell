@@ -8,7 +8,7 @@
  */
 int main(int ac, char **argv, char **envp)
 {
-	char *prompt = "Prompt $ ";
+	char *prompt = "($) ";
 	char *buffer = NULL;
 	char *arg[10];
 	size_t buff_size = 0;
@@ -36,7 +36,10 @@ int main(int ac, char **argv, char **envp)
 
 
 	else if (child_processID < 0)
+	{
+		free(buffer);
 		termination_child();
+	}
 	else
 		wait(&status);
 	}
