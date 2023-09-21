@@ -18,7 +18,7 @@ int other_commands(char **arg)
 		}
 		number = _atoi(arg[1]);
 
-		if (number <= 0)
+		if (number < 0)
 			exit(2);
 		else
 			exit(number);
