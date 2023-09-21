@@ -9,7 +9,7 @@
 int main(int ac, char **argv, char **envp)
 {
 	char *buffer = NULL, *fullpath;
-  char *arg[10];
+	char *arg[10];
 	size_t buff_size = 0;
 	ssize_t nread;
 
