@@ -16,7 +16,7 @@ int other_commands(char **arg)
 		{
 			exit(0);
 		}
-		number = _atoi(arg[1]);
+		number = atoi(arg[1]);
 
 		if (number <= 0)
 			exit(2);
