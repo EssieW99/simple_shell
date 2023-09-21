@@ -8,20 +8,10 @@
  */
 int other_commands(char **arg)
 {
-	int number;
 
 	if (strcmp(arg[0], "exit") == 0)
 	{
-		if (arg[1] == NULL)
-		{
 			exit(0);
-		}
-		number = atoi(arg[1]);
-
-		if (number < 0)
-			exit(2);
-		else
-			exit(number);
 	}
 	else if (strcmp(arg[0], "env") == 0)
 	{
