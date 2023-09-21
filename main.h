@@ -22,4 +22,8 @@ void print_current_environment(void);
 int other_commands(char **arg);
 int _atoi(const char *str);
 
+
+
+
+
 #endif

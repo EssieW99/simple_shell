@@ -11,7 +11,7 @@ int other_commands(char **arg)
 
 	if (strcmp(arg[0], "exit") == 0)
 	{
-		exit(0);
+			exit(0);
 	}
 	else if (strcmp(arg[0], "env") == 0)
 	{
